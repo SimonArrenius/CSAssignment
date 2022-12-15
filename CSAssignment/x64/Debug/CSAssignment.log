@@ -5,7 +5,7 @@ C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(34,5
 C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(34,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(49,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(50,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(53,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(53,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xmemory(681,68): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
@@ -31,8 +31,4 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=int
           ]
 C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(36): message : see reference to function template instantiation 'void std::vector<Vector2f,std::allocator<Vector2f>>::emplace_back<int,int>(int &&,int &&)' being compiled
-  main.cpp
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\Utilities.h(9,11): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\main.cpp(98,12): warning C4101: 'event': unreferenced local variable
-  Generating Code...
   CSAssignment.vcxproj -> C:\Users\SimonArrenius\source\repos\CSAssignment\x64\Debug\CSAssignment.exe

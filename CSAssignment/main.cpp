@@ -72,7 +72,6 @@ bool EventHandler(int* right, int* down, EnemyPool* ePool)
 	return true;
 }
 
-
 int main(int argc, char* args[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO) > 0)
@@ -90,7 +89,6 @@ int main(int argc, char* args[])
 
 	SDL_Texture* Ship = window.loadTexture("Textures/Ship.png");
 
-
 	Entity player = { Entity(Vector2f(50, 50), Ship) };
 
 	bool gameRunning = true;
@@ -98,36 +96,30 @@ int main(int argc, char* args[])
 	SDL_Event event;
 
 	ePool.spawnEnemy(10);
+	int down = 0;
+	int right = 0;
+	float deltaTime = 0;
+	Uint64 prevTicks = SDL_GetPerformanceCounter();
 
 	while (gameRunning)
 	{
+			Uint64 ticks = SDL_GetPerformanceCounter();
 
+			deltaTime = (float)(ticks - prevTicks) / SDL_GetPerformanceFrequency();
 
-		int down = 0;
-		int right = 0;
+			prevTicks = ticks;
 
 		gameRunning = EventHandler(&right, &down, &ePool);
-		player.pos.x += right * 5;// *deltaTime;
-		player.pos.y += down * 5;// *deltaTime;
+		player.pos.x += right * 500 * deltaTime;
+		player.pos.y += down * 500 * deltaTime;
 
-		//for (size_t i = 0; i < entities.size(); i++)
-		//{
-		//	entities[i].pos.x += 0 * 5;
-		//	entities[i].pos.y += 1 * 5;
-		//}
+		cout << "deltaTime: " << deltaTime << endl;
 
 		window.clear();
 
-			//for (Entity& a : entities)
-			//{
-			//	window.render(a);
-			//}
-
-		ePool.render(&window);
+		ePool.render(&window, deltaTime);
 
 			window.render(player);
-
-			cout << utilities::hireTimeInSeconds() << endl;
 
 		window.display();
 	}

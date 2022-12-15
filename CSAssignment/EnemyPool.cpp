@@ -9,12 +9,12 @@ EnemyPool::EnemyPool(RenderWindow* rw, int p_w, int p_h)
 	srand(time(NULL));
 }
 
-void EnemyPool::render(RenderWindow* rw)
+void EnemyPool::render(RenderWindow* rw, float deltaTime)
 {
 	for (size_t i = 0; i < active; i++)
 	{
-		positions[i].x += velocities[i].x;
-		positions[i].y += velocities[i].y;
+		positions[i].x += velocities[i].x * deltaTime;
+		positions[i].y += velocities[i].y * deltaTime;
 		rw -> render(positions[i].x, positions[i].y, 100, 100, Asteroid);
 
 		if (positions[i].x < 0 || positions[i].x > 1280 || positions[i].y < 0 || positions[i].y > 720)
@@ -22,7 +22,7 @@ void EnemyPool::render(RenderWindow* rw)
 			deactivateEnemy(i);
 		}
 	}
-	cout << "Active entities " << active << endl;
+	cout << "Active entities: " << active << endl;
 }
 
 bool hasSpawned = false;
@@ -33,7 +33,7 @@ void EnemyPool::allocateEnemy(int amount)
 	{
 		entities.emplace_back(Vector2f(rand() % p_w, rand() % p_h), Asteroid);
 		positions.emplace_back(entities.back().pos.x, entities.back().pos.y);
-		velocities.emplace_back((rand() % 10) - 5, 2);
+		velocities.emplace_back((rand() % 500) - 250, 2);
 	}
 }
 
@@ -48,10 +48,9 @@ void EnemyPool::spawnEnemy(int amount)
 	{
 		entities[i].pos.x = (rand() % p_w);
 		entities[i].pos.y = (rand() % p_h);
-		//positions[i] = (entities.back().pos);
-		//positions.emplace_back(entities.back().pos.x, entities.back().pos.y);
-		velocities[i].x = ((rand() % 10) - 5);
-		velocities[i].y = 2;
+		positions[i] = (entities[i].pos);
+		velocities[i].x = ((rand() % 500) - 250);
+		velocities[i].y = 200;
 	}
 }
 

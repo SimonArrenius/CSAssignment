@@ -7,7 +7,7 @@ class EnemyPool
 {
 public:
 	EnemyPool(RenderWindow* rw, int p_w, int p_h);
-	void render(RenderWindow* rw);
+	void render(RenderWindow* rw, float deltaTime);
 	void allocateEnemy(int amount = 100);
 	void spawnEnemy(int amount = 3);
 	void deactivateEnemy(int removeIndex);
