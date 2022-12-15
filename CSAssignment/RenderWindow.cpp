@@ -66,6 +66,17 @@ void RenderWindow::render(Entity& p_entity)
 	SDL_RenderCopy(renderer, p_entity.getTex(), &src, &dst);
 }
 
+void RenderWindow::render(float x, float y, float w, float h, SDL_Texture* texture)
+{
+	SDL_Rect dst;
+	dst.x = x;
+	dst.y = y;
+	dst.w = w;
+	dst.h = h;
+
+	SDL_RenderCopy(renderer, texture, NULL, &dst);
+}
+
 void RenderWindow::display()
 {
 	SDL_RenderPresent(renderer);

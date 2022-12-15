@@ -7,6 +7,7 @@ class RenderWindow
 {
 public: 
 	RenderWindow(const char* p_title, int p_w, int p_h);
+	void render(float x, float y, float w, float h, SDL_Texture* texture);
 	SDL_Texture* loadTexture(const char* p_filePath);
 
 	int getRefreshRate();
