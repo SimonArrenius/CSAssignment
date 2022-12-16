@@ -7,13 +7,18 @@
 #include "Entity.h"
 #include "Utilities.h"
 #include "EnemyPool.h"
+#include "ProjectileHandle.h"
+
+//#define PLAYERWIDTH 80
+//#define PLAYERHEIGTH 80
 
 using namespace std;
 
-bool EventHandler(int* right, int* down, EnemyPool* ePool)
+bool EventHandler(int* right, int* down, Entity* player, EnemyPool* ePool, ProjectileHandle* pPool)
 {
 	SDL_Event event;
 	int scancode;
+	
 
 	while (SDL_PollEvent(&event))
 	{
@@ -63,7 +68,7 @@ bool EventHandler(int* right, int* down, EnemyPool* ePool)
 		{
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
-				;
+				pPool->spawnProj(player->pos, Vector2f{ static_cast <float> (event.button.x), static_cast <float> (event.button.y) }, 1);
 			}
 			break;
 		}
@@ -83,19 +88,22 @@ int main(int argc, char* args[])
 	int p_w = 1280;
 	int p_h = 720;
 
-	RenderWindow window("GAME v1.1,", p_w, p_h);
+	RenderWindow window("GAME v1.2", p_w, p_h);
 
 	EnemyPool ePool = EnemyPool(&window, p_w, p_h);
 
+	ProjectileHandle pPool = ProjectileHandle(&window, p_w, p_h);
+
 	SDL_Texture* Ship = window.loadTexture("Textures/Ship.png");
 
-	Entity player = { Entity(Vector2f(50, 50), Ship) };
+	Entity player = { Entity(Vector2f(0, 0), Ship) };
 
 	bool gameRunning = true;
 
 	SDL_Event event;
 
 	ePool.spawnEnemy(10);
+
 	int down = 0;
 	int right = 0;
 	float deltaTime = 0;
@@ -109,17 +117,16 @@ int main(int argc, char* args[])
 
 			prevTicks = ticks;
 
-		gameRunning = EventHandler(&right, &down, &ePool);
+		gameRunning = EventHandler(&right, &down, &player, &ePool, &pPool);
 		player.pos.x += right * 500 * deltaTime;
 		player.pos.y += down * 500 * deltaTime;
 
 		cout << "deltaTime: " << deltaTime << endl;
-
 		window.clear();
 
 		ePool.render(&window, deltaTime);
-
-			window.render(player);
+		pPool.render(&window, deltaTime);
+		window.render(player);
 
 		window.display();
 	}

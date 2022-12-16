@@ -25,8 +25,6 @@ void EnemyPool::render(RenderWindow* rw, float deltaTime)
 	cout << "Active entities: " << active << endl;
 }
 
-bool hasSpawned = false;
-
 void EnemyPool::allocateEnemy(int amount)
 {
 	for (size_t i = 0; i < amount; i++)

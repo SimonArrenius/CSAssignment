@@ -1,34 +1,4 @@
-﻿  EnemyPool.cpp
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(22,21): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(34,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(34,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(49,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(50,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(53,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xmemory(681,68): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(708): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,int>(_Alloc &,_Objty *const ,int &&,int &&)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Vector2f>,
-              _Ty=Vector2f,
-              _Objty=Vector2f
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(713): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,int>(_Alloc &,_Objty *const ,int &&,int &&)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Vector2f>,
-              _Ty=Vector2f,
-              _Objty=Vector2f
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(726): message : see reference to function template instantiation 'void std::vector<Vector2f,std::allocator<Vector2f>>::_Emplace_back_with_unused_capacity<_Ty,_Ty>(_Ty &&,_Ty &&)' being compiled
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\EnemyPool.cpp(36): message : see reference to function template instantiation 'void std::vector<Vector2f,std::allocator<Vector2f>>::emplace_back<int,int>(int &&,int &&)' being compiled
+﻿  ProjectileHandle.cpp
+C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\ProjectileHandle.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\ProjectileHandle.cpp(23,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   CSAssignment.vcxproj -> C:\Users\SimonArrenius\source\repos\CSAssignment\x64\Debug\CSAssignment.exe
