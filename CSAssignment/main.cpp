@@ -9,8 +9,6 @@
 #include "EnemyPool.h"
 #include "ProjectileHandle.h"
 
-//#define PLAYERWIDTH 80
-//#define PLAYERHEIGTH 80
 
 using namespace std;
 
@@ -77,6 +75,13 @@ bool EventHandler(int* right, int* down, Entity* player, EnemyPool* ePool, Proje
 	return true;
 }
 
+unsigned int waveTimer(unsigned int interval, void * param)
+{
+	*(static_cast <bool*> (param)) = true;
+	return interval; // repeat the timer
+}
+
+
 int main(int argc, char* args[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO) > 0)
@@ -109,6 +114,10 @@ int main(int argc, char* args[])
 	float deltaTime = 0;
 	Uint64 prevTicks = SDL_GetPerformanceCounter();
 
+	bool isTimetoSpawn = false;
+
+	SDL_TimerID myTimer = SDL_AddTimer(3000, waveTimer, &isTimetoSpawn);
+
 	while (gameRunning)
 	{
 			Uint64 ticks = SDL_GetPerformanceCounter();
@@ -122,10 +131,22 @@ int main(int argc, char* args[])
 		player.pos.y += down * 500 * deltaTime;
 
 		cout << "deltaTime: " << deltaTime << endl;
+
+		if (isTimetoSpawn)
+		{
+			ePool.spawnEnemy(10);
+			isTimetoSpawn = false;
+		}
+
+		ePool.eMovement(deltaTime);
+		pPool.pMovement(deltaTime);
+
 		window.clear();
 
-		ePool.render(&window, deltaTime);
-		pPool.render(&window, deltaTime);
+
+
+		ePool.render(&window);
+		pPool.render(&window);
 		window.render(player);
 
 		window.display();

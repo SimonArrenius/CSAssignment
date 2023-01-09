@@ -1,4 +1,8 @@
-﻿  ProjectileHandle.cpp
+﻿  main.cpp
+C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\Utilities.h(9,11): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\main.cpp(108,12): warning C4101: 'event': unreferenced local variable
+  ProjectileHandle.cpp
 C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\ProjectileHandle.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\ProjectileHandle.cpp(23,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\SimonArrenius\source\repos\CSAssignment\CSAssignment\ProjectileHandle.cpp(21,20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   CSAssignment.vcxproj -> C:\Users\SimonArrenius\source\repos\CSAssignment\x64\Debug\CSAssignment.exe

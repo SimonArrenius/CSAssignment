@@ -10,12 +10,10 @@ ProjectileHandle::ProjectileHandle(RenderWindow* rw, int p_w, int p_h)
 	srand(time(NULL));
 }
 
-void ProjectileHandle::render(RenderWindow* rw, float deltaTime)
+void ProjectileHandle::render(RenderWindow* rw)
 {
 	for (size_t i = 0; i < active; i++)
 	{
-		positions[i].x += velocities[i].x * deltaTime;
-		positions[i].y += velocities[i].y * deltaTime;
 		rw->render(positions[i].x, positions[i].y, 16, 16, Asteroid);
 
 		if (positions[i].x < 0 || positions[i].x > 1280 || positions[i].y < 0 || positions[i].y > 720)
@@ -24,6 +22,15 @@ void ProjectileHandle::render(RenderWindow* rw, float deltaTime)
 		}
 	}
 	cout << "Active entities: " << active << endl;
+}
+
+void ProjectileHandle::pMovement(float deltaTime)
+{
+	for (size_t i = 0; i < active; i++)
+	{
+		positions[i].x += velocities[i].x * deltaTime;
+		positions[i].y += velocities[i].y * deltaTime;
+	}
 }
 
 void ProjectileHandle::allocateProj(int amount)
